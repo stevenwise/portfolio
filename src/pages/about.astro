@@ -1,0 +1,75 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const testimonials = [
+  {
+    quote: "Steve is one of those rare people who can wear many hats and move seamlessly between them.\n\nI love having him as part of my team. He's hard working, grasps a lot of information quickly, excellent at coaching and explaining concepts to stakeholders and colleagues. A true professional that gets a lot done quickly!\n\nWe've had some tough deliverables, but this never fazes him. He connects well with others, always trying to create the best, most useful experience for customers and as a result, improve the work of organisations and teams too.\n\nSteve would always try to do his best for the team, project and client. As you can probably tell, I wouldn't hesitate to recommend him fully.",
+    author: "Ayala Gordon",
+    role: "Associate Director Digital User Experience at University of Southampton"
+  },
+  {
+    quote: "Steve led Service Design for the Renters' Reform/Rights discovery.\n\nOver eight months he grasped a complex and challenging policy area, translating it into foundational service maps while the legislation was still in flux.\n\nHe worked collaboratively with a team that had varying levels of familiarity with user-centred design. He successfully took the service team through three days of workshopping to identify opportunities and shape the MVP.\n\nThe Service Manager really came to rely on him, and his handover to the incoming team was exemplary.",
+    author: "Sinead Doyle",
+    role: "Associate Director, Service Design at Transform"
+  },
+  {
+    quote: "Steve sets the bar for professionalism and quality of delivery — at Friday, he led the efforts on the most complex project the team tackled, and was invaluable in ensuring on-time and below-budget delivery. His composure was instrumental in keeping the team focused despite the many twists and turns, and his expertise allowed us to deliver innovative and elegant solutions that work.\n\nSteve is a joy to work with. He's funny, thoughtful and has the unrivaled ability to remain calm and gracious under pressure. Working with him has been a real treat and I look forward to renewing our professional relationship in the future!",
+    author: "Alberta Soranzo",
+    role: "Director of UX at We are Friday"
+  },
+  {
+    quote: "Steve is highly analytical and deeply skilled in all aspects of UX processes but also shows great adaptability and is open to new ways of working. He is professional and reliable, meticulous in his work and an enthusiastic collaborator. Steve is equally comfortable leading large scale complex programmes of work as well as contributing to smaller projects.\n\nHe forges strong relationships with colleagues and clients and is comfortable navigating complex client situations. Steve was a very valuable member of the Friday design team and I'm very happy to recommend him. I hope our paths cross again.",
+    author: "Jo Simmons",
+    role: "Chief Design Officer at We are Friday"
+  }
+];
+---
+
+<Layout title="About | Steven Wise">
+  <main class="max-w-7xl mx-auto px-6">
+    <div class="pt-32">
+      <h1 class="text-4xl md:text-5xl lg:text-7xl font-montserrat font-bold text-gray-900 mb-12">About</h1>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start mb-24">
+        <div class="space-y-6">
+          <p class="text-lg md:text-xl text-gray-600 font-montserrat font-light leading-relaxed">I'm a design professional with over 20 years of experience in user-centred design, visual design and design management. I love making products that are easy to use, have intuitive interfaces and deliver measurable benefits for their owners. I'm always learning and bringing the latest industry thinking, best practices and technology to a project.</p>
+          
+          <p class="text-base md:text-lg text-gray-600">My work has covered service design, business transformation, digital transformation, service design, online brand creation, enterprise content management, interactive design and user experience. I've worked extensively with clients across the public and private sectors, including Barclays, EE, HMRC, HSBC, Ministry of Justice and NHS Digital.</p>
+        </div>
+        
+        <div class="relative aspect-4/3">
+          <img
+            src="/images/profile-image.jpg"
+            alt="Steven Wise"
+            class="w-full h-full object-cover"
+          />
+        </div>
+      </div>
+
+      <section class="mb-24">
+        <h2 class="text-4xl font-montserrat font-bold text-gray-900 mb-12 text-center">Testimonials</h2>
+        
+        <div class="grid grid-cols-1 gap-12 max-w-3xl mx-auto [&>*+*]:border-t-2 [&>*+*]:border-gray-200">
+          {testimonials.map((testimonial, index) => (
+            <blockquote class={`space-y-6 text-center ${index > 0 ? 'pt-12' : ''}`}>
+              <p class="text-xl text-gray-600 font-montserrat font-light whitespace-pre-line leading-relaxed">"{testimonial.quote}"</p>
+              <footer>
+                <p class="font-medium text-gray-900">{testimonial.author}</p>
+                <p class="text-gray-600">{testimonial.role}</p>
+              </footer>
+            </blockquote>
+          ))}
+        </div>
+      </section>
+
+      <div>
+        <img
+          src="/images/design-crit.jpg"
+          alt="Design crit with UX team"
+          class="w-full aspect-video object-cover"
+        />
+        <p class="text-center text-gray-600 mt-4 mb-[120px]">Design crit with UX team</p>
+      </div>
+    </div>
+  </main>
+</Layout>

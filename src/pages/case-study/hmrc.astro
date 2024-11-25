@@ -1,0 +1,169 @@
+---
+import CaseStudyLayout from '../../layouts/CaseStudyLayout.astro';
+import Stats from '../../components/Stats.astro';
+import ImageTextSection from '../../components/ImageTextSection.astro';
+import RichText from '../../components/RichText.astro';
+import Testimonials from '../../components/Testimonials.astro';
+import FullWidthImage from '../../components/FullWidthImage.astro';
+import Quote from '../../components/Quote.astro';
+import TextSection from '../../components/TextSection.astro';
+
+const stats = [
+  { value: "45M", label: "Users annually" },
+  { value: "92%", label: "Authentication success" },
+  { value: "60%", label: "Reduction in fraud" },
+  { value: "24/7", label: "Service availability" }
+];
+
+const designProcess = {
+  title: "Design Process",
+  subtitle: "Security-First Design Approach",
+  paragraphs: [
+    "Our approach to securing HMRC's digital services focused on creating a seamless user experience while maintaining robust security measures.",
+    "Here's how we approached this challenge:"
+  ],
+  lists: [
+    {
+      type: "ordered",
+      items: [
+        {
+          text: "Security Analysis",
+          subItems: [
+            "Threat modeling and risk assessment",
+            "User authentication patterns review",
+            "Security requirements gathering",
+            "Compliance verification"
+          ]
+        },
+        {
+          text: "User Experience Design",
+          subItems: [
+            "Authentication flow optimization",
+            "Error handling and recovery",
+            "Progressive disclosure",
+            "Help and support integration"
+          ]
+        },
+        {
+          text: "Implementation",
+          subItems: [
+            "Security pattern development",
+            "Usability testing",
+            "Performance optimization",
+            "Monitoring and analytics"
+          ]
+        }
+      ]
+    }
+  ]
+};
+
+const testimonials = [
+  {
+    quote: "Steve's work on our security services significantly improved user success rates while maintaining the highest security standards. His approach to balancing security and usability was exemplary.",
+    author: "Robert Wilson",
+    role: "Head of Digital Security, HMRC"
+  },
+  {
+    quote: "The authentication patterns Steve designed have become the standard across our digital services. They've helped reduce fraud while making the service more accessible to users.",
+    author: "Claire Matthews",
+    role: "Service Owner, HMRC"
+  }
+];
+
+const userQuote = {
+  quote: "The new security process is much clearer now. I know exactly what I need to do and why I'm being asked for certain information.",
+  author: "HMRC Service User",
+  role: "Small Business Owner"
+};
+
+const overviewContent = [
+  "Led the design of HMRC's security and identity verification services, focusing on creating low-friction experiences while maintaining robust security.",
+  "The project successfully reduced fraud while improving user success rates across all digital services."
+];
+
+const challengeContent = [
+  "Balancing the need for robust security measures with creating an accessible and user-friendly experience for millions of users.",
+  "Implementing complex security requirements while ensuring the service remained accessible to users with varying digital skills and access needs."
+];
+---
+
+<CaseStudyLayout 
+  title="Securing HMRC digital services"
+  organization="HMRC | GOV.UK"
+>
+  <!-- Overview section -->
+  <div class="max-w-7xl mx-auto px-6">
+    <TextSection 
+      title="Overview"
+      content={overviewContent}
+    />
+
+    <TextSection 
+      title="The Challenge"
+      subtitle="Security with Accessibility"
+      content={challengeContent}
+    />
+  </div>
+
+  <!-- Stats section -->
+  <div class="bg-gray-50">
+    <div class="max-w-7xl mx-auto">
+      <Stats stats={stats} />
+    </div>
+  </div>
+
+  <!-- Image text sections -->
+  <div class="max-w-7xl mx-auto px-6">
+    <ImageTextSection
+      title="Security Analysis"
+      content={[
+        "Conducted comprehensive security analysis to identify risks and opportunities for improvement.",
+        "Key activities included:",
+        "• Threat modeling and risk assessment\n• User authentication patterns review\n• Security requirements gathering\n• Compliance verification\n• User research and testing"
+      ]}
+      image="/images/security.jpg"
+      imageAlt="Security analysis and threat modeling documentation"
+      imagePosition="right"
+    />
+
+    <ImageTextSection
+      title="User Experience Design"
+      content={[
+        "Developed user-centered security patterns that balance protection with accessibility.",
+        "Key deliverables:\n• Authentication flows\n• Error handling patterns\n• Help and support integration\n• Security documentation\n• Implementation guidelines"
+      ]}
+      image="/images/workflow.jpg"
+      imageAlt="User experience design for security patterns"
+      imagePosition="left"
+    />
+  </div>
+
+  <!-- Full width image -->
+  <div class="w-full bg-gray-50">
+    <FullWidthImage
+      title="Security Pattern Library"
+      description="A comprehensive collection of security patterns and implementation guidelines ensuring consistent security across services."
+      image="/images/security.jpg"
+      imageAlt="Security pattern library documentation"
+      caption="Security pattern documentation"
+    />
+  </div>
+
+  <!-- Quote section -->
+  <Quote {...userQuote} />
+
+  <!-- Design process -->
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="max-w-4xl">
+      <section class="mb-24">
+        <RichText content={designProcess} />
+      </section>
+    </div>
+  </div>
+
+  <!-- Testimonials -->
+  <div class="w-full">
+    <Testimonials testimonials={testimonials} />
+  </div>
+</CaseStudyLayout>

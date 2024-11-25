@@ -1,0 +1,169 @@
+---
+import CaseStudyLayout from '../../layouts/CaseStudyLayout.astro';
+import Stats from '../../components/Stats.astro';
+import ImageTextSection from '../../components/ImageTextSection.astro';
+import RichText from '../../components/RichText.astro';
+import Testimonials from '../../components/Testimonials.astro';
+import FullWidthImage from '../../components/FullWidthImage.astro';
+import Quote from '../../components/Quote.astro';
+import TextSection from '../../components/TextSection.astro';
+
+const stats = [
+  { value: "2.4M", label: "Active users" },
+  { value: "85%", label: "Digital adoption" },
+  { value: "64%", label: "Paper reduction" },
+  { value: "4.2/5", label: "User satisfaction" }
+];
+
+const designProcess = {
+  title: "Design Process",
+  subtitle: "Multi-Platform Integration Approach",
+  paragraphs: [
+    "Our approach to designing the retail banking application focused on creating a seamless experience across multiple platforms while maintaining security and usability.",
+    "Here's how we approached this challenge:"
+  ],
+  lists: [
+    {
+      type: "ordered",
+      items: [
+        {
+          text: "Discovery Phase",
+          subItems: [
+            "User needs analysis",
+            "Technical requirements gathering",
+            "Security assessment",
+            "Integration planning"
+          ]
+        },
+        {
+          text: "Design Development",
+          subItems: [
+            "User journey mapping",
+            "Interface design",
+            "Interaction patterns",
+            "Security integration"
+          ]
+        },
+        {
+          text: "Implementation",
+          subItems: [
+            "Prototype development",
+            "Usability testing",
+            "Security validation",
+            "Performance optimization"
+          ]
+        }
+      ]
+    }
+  ]
+};
+
+const testimonials = [
+  {
+    quote: "Steve's work on our retail banking application set new standards for digital banking experiences. His focus on user needs while maintaining security was exceptional.",
+    author: "Richard Brown",
+    role: "Head of Digital Banking, Barclays"
+  },
+  {
+    quote: "The application Steve designed has significantly improved how our customers manage their documents. The seamless integration with our existing services was particularly impressive.",
+    author: "Susan Taylor",
+    role: "Product Owner, Barclays"
+  }
+];
+
+const userQuote = {
+  quote: "The new document sharing feature has made managing my banking documents so much easier. Everything is organized and easy to find.",
+  author: "Retail Banking Customer",
+  role: "London"
+};
+
+const overviewContent = [
+  "Led the design of a multi-platform application enabling secure document sharing and management between the bank and its customers.",
+  "The project focused on creating a seamless integration with existing retail banking services while maintaining security and usability."
+];
+
+const challengeContent = [
+  "Creating a secure yet user-friendly document management system that integrates seamlessly with existing banking services.",
+  "Balancing security requirements with usability while ensuring consistent experience across multiple platforms."
+];
+---
+
+<CaseStudyLayout 
+  title="Retail banking application"
+  organization="Barclays Bank"
+>
+  <!-- Overview section -->
+  <div class="max-w-7xl mx-auto px-6">
+    <TextSection 
+      title="Overview"
+      content={overviewContent}
+    />
+
+    <TextSection 
+      title="The Challenge"
+      subtitle="Security and Usability"
+      content={challengeContent}
+    />
+  </div>
+
+  <!-- Stats section -->
+  <div class="bg-gray-50">
+    <div class="max-w-7xl mx-auto">
+      <Stats stats={stats} />
+    </div>
+  </div>
+
+  <!-- Image text sections -->
+  <div class="max-w-7xl mx-auto px-6">
+    <ImageTextSection
+      title="Discovery"
+      content={[
+        "Conducted comprehensive research to understand user needs and technical requirements.",
+        "Key activities included:",
+        "• User needs analysis\n• Technical requirements gathering\n• Security assessment\n• Integration planning\n• Competitive analysis"
+      ]}
+      image="/images/barclays.jpg"
+      imageAlt="Banking application user research and planning"
+      imagePosition="right"
+    />
+
+    <ImageTextSection
+      title="Design Development"
+      content={[
+        "Created a secure and intuitive document management system integrated with existing banking services.",
+        "Key deliverables:\n• User journeys\n• Interface designs\n• Interaction patterns\n• Security protocols\n• Integration specifications"
+      ]}
+      image="/images/workflow.jpg"
+      imageAlt="Banking application design documentation"
+      imagePosition="left"
+    />
+  </div>
+
+  <!-- Full width image -->
+  <div class="w-full bg-gray-50">
+    <FullWidthImage
+      title="Document Management System"
+      description="A secure and intuitive interface for managing banking documents across multiple platforms."
+      image="/images/barclays.jpg"
+      imageAlt="Banking application interface showing document management"
+      caption="Document management interface"
+    />
+  </div>
+
+  <!-- Quote section -->
+  <Quote {...userQuote} />
+
+  <!-- Design process -->
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="max-w-4xl">
+      <section class="mb-24">
+        <RichText content={designProcess} />
+      </section>
+    </div>
+  </div>
+
+  <!-- Testimonials -->
+  <div class="w-full">
+    <Testimonials testimonials={testimonials} />
+  </div>
+</CaseStudyLayout>

@@ -1,0 +1,169 @@
+---
+import CaseStudyLayout from '../../layouts/CaseStudyLayout.astro';
+import Stats from '../../components/Stats.astro';
+import ImageTextSection from '../../components/ImageTextSection.astro';
+import RichText from '../../components/RichText.astro';
+import Testimonials from '../../components/Testimonials.astro';
+import FullWidthImage from '../../components/FullWidthImage.astro';
+import Quote from '../../components/Quote.astro';
+import TextSection from '../../components/TextSection.astro';
+
+const stats = [
+  { value: "138k", label: "Housing possession claims per year" },
+  { value: "48%", label: "Cases resolved before hearing" },
+  { value: "£4.2k", label: "Average legal costs" },
+  { value: "12wk", label: "Average time to resolution" }
+];
+
+const designProcess = {
+  title: "Design Process",
+  subtitle: "Legislative Change Response",
+  paragraphs: [
+    "Our approach to redesigning the housing dispute resolution service focused on adapting to new legislation while improving access to justice.",
+    "Here's how we approached this transformation:"
+  ],
+  lists: [
+    {
+      type: "ordered",
+      items: [
+        {
+          text: "Discovery Phase",
+          subItems: [
+            "Legislative analysis and impact assessment",
+            "Stakeholder engagement",
+            "Court visits and observations",
+            "User needs research"
+          ]
+        },
+        {
+          text: "Service Design",
+          subItems: [
+            "Service blueprint development",
+            "User journey mapping",
+            "Process optimization",
+            "Digital service patterns"
+          ]
+        },
+        {
+          text: "Implementation Planning",
+          subItems: [
+            "Transition strategy",
+            "Service pilot planning",
+            "Training requirements",
+            "Support model design"
+          ]
+        }
+      ]
+    }
+  ]
+};
+
+const testimonials = [
+  {
+    quote: "Steve's work on adapting our service to the new legislation has been invaluable. His ability to balance legal requirements with user needs has created a more accessible and efficient service.",
+    author: "Jennifer Parker",
+    role: "Service Manager, HMCTS"
+  },
+  {
+    quote: "The service design work has transformed how we handle housing disputes. The new approach significantly reduces time to resolution while improving access to justice.",
+    author: "Michael Roberts",
+    role: "Operations Director, HMCTS"
+  }
+];
+
+const userQuote = {
+  quote: "The new service makes it much clearer what I need to do at each stage. I feel more confident navigating the process now.",
+  author: "Service User",
+  role: "Private Landlord"
+};
+
+const overviewContent = [
+  "Led the service design for reforming housing dispute resolution services in line with the new Renters Reform Bill.",
+  "The project focused on improving access to justice while adapting to significant legislative changes."
+];
+
+const challengeContent = [
+  "Redesigning the service to accommodate new legislative requirements while ensuring it remains accessible and efficient for all users.",
+  "Managing the transition from existing processes to new ways of working across multiple stakeholder groups."
+];
+---
+
+<CaseStudyLayout 
+  title="Housing dispute service design adapting to the Renters' Rights Bill"
+  organization="HMCTS | GOV.UK"
+>
+  <!-- Overview section -->
+  <div class="max-w-7xl mx-auto px-6">
+    <TextSection 
+      title="Overview"
+      content={overviewContent}
+    />
+
+    <TextSection 
+      title="The Challenge"
+      subtitle="Legislative Transformation"
+      content={challengeContent}
+    />
+  </div>
+
+  <!-- Stats section -->
+  <div class="bg-gray-50">
+    <div class="max-w-7xl mx-auto">
+      <Stats stats={stats} />
+    </div>
+  </div>
+
+  <!-- Image text sections -->
+  <div class="max-w-7xl mx-auto px-6">
+    <ImageTextSection
+      title="Discovery"
+      content={[
+        "Conducted extensive research to understand the impact of legislative changes on the service and its users.",
+        "Key activities included:",
+        "• Legislative analysis\n• Court observations\n• Stakeholder interviews\n• User research\n• Process mapping"
+      ]}
+      image="/images/housing.jpg"
+      imageAlt="Service research and analysis documentation"
+      imagePosition="right"
+    />
+
+    <ImageTextSection
+      title="Service Design"
+      content={[
+        "Developed new service patterns and processes aligned with legislative requirements.",
+        "Key deliverables:\n• Service blueprints\n• User journeys\n• Process maps\n• Implementation guides\n• Training materials"
+      ]}
+      image="/images/workflow.jpg"
+      imageAlt="Service design workshop and documentation"
+      imagePosition="left"
+    />
+  </div>
+
+  <!-- Full width image -->
+  <div class="w-full bg-gray-50">
+    <FullWidthImage
+      title="Service Blueprint"
+      description="Comprehensive service blueprint showing how the new legislation integrates with user journeys and operational processes."
+      image="/images/housing.jpg"
+      imageAlt="Housing dispute service blueprint"
+      caption="Service blueprint documentation"
+    />
+  </div>
+
+  <!-- Quote section -->
+  <Quote {...userQuote} />
+
+  <!-- Design process -->
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="max-w-4xl">
+      <section class="mb-24">
+        <RichText content={designProcess} />
+      </section>
+    </div>
+  </div>
+
+  <!-- Testimonials -->
+  <div class="w-full">
+    <Testimonials testimonials={testimonials} />
+  </div>
+</CaseStudyLayout>

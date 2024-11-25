@@ -1,0 +1,31 @@
+---
+interface Testimonial {
+  quote: string;
+  author: string;
+  role: string;
+}
+
+interface Props {
+  testimonials: Testimonial[];
+}
+
+const { testimonials } = Astro.props;
+---
+
+<div class="py-16 md:py-24">
+  <div class="max-w-7xl mx-auto px-6">
+    <h2 class="text-3xl font-montserrat font-bold text-gray-900 text-center mb-16">Testimonials</h2>
+    
+    <div class="grid grid-cols-1 gap-12 max-w-3xl mx-auto [&>*+*]:border-t-2 [&>*+*]:border-gray-200">
+      {testimonials.map((testimonial, index) => (
+        <blockquote class={`space-y-6 text-center ${index > 0 ? 'pt-12' : ''}`}>
+          <p class="text-xl text-gray-600 font-montserrat font-light whitespace-pre-line leading-relaxed">"{testimonial.quote}"</p>
+          <footer>
+            <p class="font-medium text-gray-900">{testimonial.author}</p>
+            <p class="text-gray-600">{testimonial.role}</p>
+          </footer>
+        </blockquote>
+      ))}
+    </div>
+  </div>
+</div>

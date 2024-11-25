@@ -1,0 +1,25 @@
+---
+interface Stat {
+  value: string;
+  label: string;
+}
+
+interface Props {
+  stats: Stat[];
+}
+
+const { stats } = Astro.props;
+---
+
+<div class="stats-section">
+  <div class="max-w-7xl mx-auto py-16">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      {stats.map(stat => (
+        <div class="text-center">
+          <p class="text-6xl md:text-7xl lg:text-8xl font-montserrat font-light text-gray-900 mb-4">{stat.value}</p>
+          <p class="text-base md:text-lg lg:text-xl font-montserrat text-gray-600 leading-tight">{stat.label}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</div>

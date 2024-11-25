@@ -1,0 +1,76 @@
+---
+interface CaseStudy {
+  title: string;
+  href: string;
+  image: string;
+}
+
+interface Props {
+  currentPath: string;
+}
+
+const { currentPath } = Astro.props;
+
+const allCaseStudies = [
+  {
+    title: "Housing dispute service design: adapting to the Renters' Rights Bill",
+    href: "/case-study/housing",
+    image: "/images/housing.jpg"
+  },
+  {
+    title: "Streamlining organisational workflows",
+    href: "/case-study/workflow",
+    image: "/images/workflow.jpg"
+  },
+  {
+    title: "Digital transformation in higher education",
+    href: "/case-study/education",
+    image: "/images/education.jpg"
+  },
+  {
+    title: "Securing HMRC digital services",
+    href: "/case-study/hmrc",
+    image: "/images/security.jpg"
+  },
+  {
+    title: "Designing a unified global business banking experience",
+    href: "/case-study/banking",
+    image: "/images/hsbc.jpg"
+  },
+  {
+    title: "Retail banking application",
+    href: "/case-study/barclays",
+    image: "/images/barclays.jpg"
+  }
+];
+
+const relatedCaseStudies = allCaseStudies
+  .filter(study => study.href !== currentPath)
+  .slice(0, 5);
+---
+
+<section class="mt-24 md:mt-32 mb-16 md:mb-24">
+  <h2 class="text-2xl md:text-3xl font-montserrat font-bold text-gray-900 text-center mb-12 md:mb-16">Read more case studies</h2>
+  
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 md:gap-8">
+    {relatedCaseStudies.map(study => (
+      <a 
+        href={study.href}
+        class="group block focus:outline-none"
+      >
+        <div class="bg-gray-100 mb-3 md:mb-4 overflow-hidden">
+          <img 
+            src={study.image} 
+            alt=""
+            loading="lazy"
+            decoding="async"
+            class="w-full aspect-square object-cover transition-transform duration-300 group-hover:scale-105"
+          />
+        </div>
+        <h3 class="text-sm md:text-base font-montserrat font-bold text-gray-900 leading-tight group-hover:underline decoration-2 underline-offset-4 group-focus-visible:bg-yellow-300 group-focus-visible:box-decoration-clone group-focus-visible:no-underline group-focus-visible:border-b-4 group-focus-visible:border-black group-active:bg-yellow-300 group-active:box-decoration-clone group-active:border-b-4 group-active:border-black">
+          {study.title}
+        </h3>
+      </a>
+    ))}
+  </div>
+</section>

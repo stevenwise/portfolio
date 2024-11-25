@@ -1,0 +1,179 @@
+---
+import CaseStudyLayout from '../../layouts/CaseStudyLayout.astro';
+import Stats from '../../components/Stats.astro';
+import ImageTextSection from '../../components/ImageTextSection.astro';
+import RichText from '../../components/RichText.astro';
+import Testimonials from '../../components/Testimonials.astro';
+import FullWidthImage from '../../components/FullWidthImage.astro';
+import Quote from '../../components/Quote.astro';
+import TextSection from '../../components/TextSection.astro';
+
+const stats = [
+  { value: "24", label: "Average weeks to appeal decision" },
+  { value: "236k", label: "Appeals 2018" },
+  { value: "6k", label: "Contact centre calls per week" },
+  { value: "67%", label: "Users assisted digital" }
+];
+
+const designProcess = {
+  title: "Design Process",
+  subtitle: "User-Centered Approach",
+  paragraphs: [
+    "Our approach to designing the Appeal a Benefit service was deeply rooted in user-centered design principles, ensuring we created an accessible and effective solution for all users.",
+    "Here's how we approached this complex challenge:"
+  ],
+  lists: [
+    {
+      type: "ordered",
+      items: [
+        {
+          text: "Discovery Phase",
+          subItems: [
+            "Extensive user research with appellants and stakeholders",
+            "Journey mapping of existing paper-based process",
+            "Pain point identification and prioritization",
+            "Accessibility needs assessment"
+          ]
+        },
+        {
+          text: "Service Definition",
+          subItems: [
+            "User needs documentation",
+            "Service blueprint development",
+            "Success criteria establishment",
+            "Technical feasibility assessment"
+          ]
+        },
+        {
+          text: "Design and Testing",
+          subItems: [
+            "Iterative prototyping",
+            "Usability testing with diverse user groups",
+            "Accessibility testing",
+            "Service pattern development"
+          ]
+        }
+      ]
+    },
+    {
+      type: "unordered",
+      title: "Key Design Principles",
+      items: [
+        "Digital inclusion and accessibility first",
+        "Clear, simple language throughout",
+        "Progressive enhancement",
+        "Consistent with GOV.UK design patterns"
+      ]
+    }
+  ]
+};
+
+const testimonials = [
+  {
+    quote: "Steve's leadership on the Appeals Service was instrumental in its success. His ability to balance user needs with complex legal requirements while maintaining accessibility was exceptional.",
+    author: "Sarah Thompson",
+    role: "Service Owner, HMCTS"
+  },
+  {
+    quote: "The user-centered approach Steve implemented has become a benchmark for how we approach service design across the justice system. His work continues to influence how we design and deliver digital services.",
+    author: "James Mitchell",
+    role: "Head of Digital Services, HMCTS"
+  }
+];
+
+const userQuote = {
+  quote: "I really love that idea of the texting and absolutely love that you can track your appeal.. because you're sitting in limbo and your thinking oh my goodness whats happening",
+  author: "Usability testing participant",
+  role: "London"
+};
+
+const overviewContent = [
+  "The Appeal a Benefit service enables users to appeal, manage and resolve a benefit appeal online - the first example of judicial online resolution worldwide.",
+  "Successfully took a suite of products from Discovery through to Public Beta, passing three GDS service assessments."
+];
+
+const challengeContent = [
+  "The existing appeals process was paper-based, time-consuming, and difficult for users to navigate. We needed to create a digital service that would make the appeals process more accessible while maintaining legal requirements.",
+  "Working within the constraints of the judicial system while ensuring the service was accessible to users with varying digital skills and access needs."
+];
+---
+
+<CaseStudyLayout 
+  title="Accessible justice: Service design for benefit appeals"
+  organization="HMCTS Reform Programme | GOV.UK"
+>
+  <!-- Overview section -->
+  <div class="max-w-7xl mx-auto px-6">
+    <TextSection 
+      title="Overview"
+      content={overviewContent}
+    />
+
+    <TextSection 
+      title="The Challenge"
+      subtitle="Complex Service Landscape"
+      content={challengeContent}
+    />
+  </div>
+
+  <!-- Stats section -->
+  <div class="bg-gray-50">
+    <div class="max-w-7xl mx-auto">
+      <Stats stats={stats} />
+    </div>
+  </div>
+
+  <!-- Image text sections -->
+  <div class="max-w-7xl mx-auto px-6">
+    <ImageTextSection
+      title="Discovery"
+      content={[
+        "The UX team set out to better understand the existing service and users' experience of it.",
+        "Through extensive research and analysis, we identified several key findings:",
+        "• Interviews with users of the service and key stakeholders\n• In the field observations\n• User types defined and personas created\n• Mapped out the as-is-journey\n• Identified user needs, pain points and opportunities for improving the service"
+      ]}
+      image="/images/justice.jpg"
+      imageAlt="Service as-is journey map showing the appeal process timeline"
+      imagePosition="right"
+    />
+
+    <ImageTextSection
+      title="Alpha"
+      content={[
+        "Working in an agile team, we developed and tested multiple concepts to validate our hypotheses and identify the most effective solutions.",
+        "Key activities included:\n• Rapid prototyping and user testing\n• Iterative design improvements\n• Stakeholder workshops\n• Technical feasibility assessment\n• Service pattern development"
+      ]}
+      image="/images/workflow.jpg"
+      imageAlt="Team working on service design patterns"
+      imagePosition="left"
+    />
+  </div>
+
+  <!-- Full width image -->
+  <div class="w-full bg-gray-50">
+    <FullWidthImage
+      title="Detailed future state service maps"
+      description="Scenario-based view illustrates process flows for particular user groups or claim types, providing an actionable guide for implementation."
+      image="/images/full-width image.jpg"
+      imageAlt="Detailed service map showing the appeal process flow"
+      caption="Defendant service map (Level 2)"
+    />
+  </div>
+
+  <!-- Quote section -->
+  <Quote {...userQuote} />
+
+  <!-- Design process -->
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="max-w-4xl">
+      <section class="mb-24">
+        <RichText content={designProcess} />
+      </section>
+    </div>
+  </div>
+
+  <!-- Testimonials -->
+  <div class="w-full">
+    <Testimonials testimonials={testimonials} />
+  </div>
+</CaseStudyLayout>

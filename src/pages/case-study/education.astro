@@ -1,0 +1,169 @@
+---
+import CaseStudyLayout from '../../layouts/CaseStudyLayout.astro';
+import Stats from '../../components/Stats.astro';
+import ImageTextSection from '../../components/ImageTextSection.astro';
+import RichText from '../../components/RichText.astro';
+import Testimonials from '../../components/Testimonials.astro';
+import FullWidthImage from '../../components/FullWidthImage.astro';
+import Quote from '../../components/Quote.astro';
+import TextSection from '../../components/TextSection.astro';
+
+const stats = [
+  { value: "22k", label: "Students impacted" },
+  { value: "150+", label: "Digital services" },
+  { value: "89%", label: "User satisfaction" },
+  { value: "35%", label: "Efficiency increase" }
+];
+
+const designProcess = {
+  title: "Design Process",
+  subtitle: "Digital Transformation Strategy",
+  paragraphs: [
+    "Our approach to transforming the university's digital services focused on creating user-centered, accessible solutions that support the institution's strategic objectives.",
+    "Here's how we approached this transformation:"
+  ],
+  lists: [
+    {
+      type: "ordered",
+      items: [
+        {
+          text: "Strategic Planning",
+          subItems: [
+            "Stakeholder engagement and alignment",
+            "Current state assessment",
+            "User research and needs analysis",
+            "Technology capability review"
+          ]
+        },
+        {
+          text: "Service Design",
+          subItems: [
+            "Service blueprint development",
+            "User journey mapping",
+            "Design system creation",
+            "Accessibility standards"
+          ]
+        },
+        {
+          text: "Implementation",
+          subItems: [
+            "Agile delivery methodology",
+            "Iterative development and testing",
+            "Training and support",
+            "Change management"
+          ]
+        }
+      ]
+    }
+  ]
+};
+
+const testimonials = [
+  {
+    quote: "Steve's leadership in our digital transformation has revolutionized how we deliver services to our students and staff. His user-centered approach has become integral to how we think about digital services.",
+    author: "Professor Sarah Williams",
+    role: "Pro Vice-Chancellor, University of Southampton"
+  },
+  {
+    quote: "The design system and processes Steve implemented have significantly improved our ability to deliver consistent, high-quality digital services across the university.",
+    author: "Mark Thompson",
+    role: "Head of Digital Services, University of Southampton"
+  }
+];
+
+const userQuote = {
+  quote: "The new digital services have made university life so much easier. Everything I need is now accessible and easy to use.",
+  author: "Final Year Student",
+  role: "University of Southampton"
+};
+
+const overviewContent = [
+  "Led the digital transformation programme at the University of Southampton, transitioning from unstructured web publishing to user-centered digital products and services.",
+  "The project focused on improving user experience while supporting the university's strategic objectives through digital innovation."
+];
+
+const challengeContent = [
+  "Transforming a complex organization with diverse stakeholder needs and established ways of working into a user-centered, digital-first institution.",
+  "Managing change across multiple departments while ensuring consistent implementation of new digital standards and practices."
+];
+---
+
+<CaseStudyLayout 
+  title="Digital transformation in higher education"
+  organization="OneWeb | University of Southampton"
+>
+  <!-- Overview section -->
+  <div class="max-w-7xl mx-auto px-6">
+    <TextSection 
+      title="Overview"
+      content={overviewContent}
+    />
+
+    <TextSection 
+      title="The Challenge"
+      subtitle="Organizational Change"
+      content={challengeContent}
+    />
+  </div>
+
+  <!-- Stats section -->
+  <div class="bg-gray-50">
+    <div class="max-w-7xl mx-auto">
+      <Stats stats={stats} />
+    </div>
+  </div>
+
+  <!-- Image text sections -->
+  <div class="max-w-7xl mx-auto px-6">
+    <ImageTextSection
+      title="Discovery and Strategy"
+      content={[
+        "Conducted comprehensive research and analysis to understand the current state of digital services and user needs.",
+        "Key activities included:",
+        "• Stakeholder interviews and workshops\n• User research with students and staff\n• Digital service audit\n• Technical capability assessment\n• Best practice review"
+      ]}
+      image="/images/education.jpg"
+      imageAlt="Digital services workshop with university stakeholders"
+      imagePosition="right"
+    />
+
+    <ImageTextSection
+      title="Service Design"
+      content={[
+        "Developed a comprehensive service design approach to ensure consistent, user-centered digital services.",
+        "Key deliverables:\n• Service blueprints\n• User journey maps\n• Design system\n• Content guidelines\n• Accessibility standards"
+      ]}
+      image="/images/workflow.jpg"
+      imageAlt="Service design workshop and documentation"
+      imagePosition="left"
+    />
+  </div>
+
+  <!-- Full width image -->
+  <div class="w-full bg-gray-50">
+    <FullWidthImage
+      title="University Design System"
+      description="A comprehensive design system ensuring consistent, accessible digital services across the university."
+      image="/images/education.jpg"
+      imageAlt="University design system documentation"
+      caption="OneWeb design system"
+    />
+  </div>
+
+  <!-- Quote section -->
+  <Quote {...userQuote} />
+
+  <!-- Design process -->
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="max-w-4xl">
+      <section class="mb-24">
+        <RichText content={designProcess} />
+      </section>
+    </div>
+  </div>
+
+  <!-- Testimonials -->
+  <div class="w-full">
+    <Testimonials testimonials={testimonials} />
+  </div>
+</CaseStudyLayout>

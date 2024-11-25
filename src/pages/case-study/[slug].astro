@@ -1,0 +1,22 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+export function getStaticPaths() {
+  return [];
+}
+
+const { title = '', overview = '' } = Astro.props;
+---
+
+<Layout title={`${title} | Case Study`}>
+  <main class="pt-24 pb-16">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center">
+        <div class="max-w-[75%] mx-auto">
+          <h1 class="text-3xl md:text-4xl lg:text-5xl leading-[1.4] font-montserrat font-bold text-gray-900 mb-4">{title}</h1>
+          <p class="text-lg md:text-xl lg:text-2xl text-gray-600">{overview}</p>
+        </div>
+      </div>
+    </div>
+  </main>
+</Layout>

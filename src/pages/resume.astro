@@ -1,0 +1,256 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ExpertiseList from '../components/ExpertiseList.astro';
+
+const experience = [
+  {
+    role: "Service Designer Lead",
+    company: "Streamline organisational workflows / University of Southampton",
+    period: "September - November 2024",
+    description: "Led the discovery project to streamline course rollover workflows across multiple teams.",
+    achievements: [
+      "Facilitated workshops to map 'as-is' processes, uncovering pain points and dependencies",
+      "Identified and prioritised improvement opportunities in collaboration with stakeholders",
+      "Delivered insights and artefacts to empower product managers to further develop solutions"
+    ],
+    caseStudy: "/case-study/workflow"
+  },
+  {
+    role: "Senior Service Designer",
+    company: "Housing Possession Service / HMCTS",
+    period: "February - September 2024",
+    description: "Led the service design for the Housing Dispute resolution project, reforming housing dispute resolution services in line with the new Renters Reform Bill.",
+    achievements: [
+      "Conducted research through court visits and stakeholder interviews to capture user needs and pain points",
+      "Mapped the 'as-is' service to identify issues and opportunities for improvement",
+      "Led analysis and insight mapping to identify key challenges and support co-creation with stakeholders",
+      "Designed and facilitated stakeholder ideation workshops",
+      "Developed future state journey maps to illustrate service improvements and change hypotheses",
+      "Collaborated with multidisciplinary teams to iterate service concepts, ensuring alignment with GDS standards, technical frameworks and legislative requirements"
+    ],
+    caseStudy: "/case-study/housing"
+  },
+  {
+    role: "Acting Head of User Experience Design",
+    company: "OneWeb digital transformation programme / University of Southampton",
+    period: "September 2019 - January 2024",
+    description: "Took the university from unfiltered web publishing to user-centred digital products and services that support the university's strategic objectives.",
+    achievements: [
+      "Championed and implemented user-centred design (UCD) and digital inclusion principles and methodologies",
+      "Built relationships with and engaged stakeholders in the UCD process",
+      "Supported the development of project goals and planning",
+      "Led, trained and mentored the UX design team",
+      "Designed end-to-end digital products and services",
+      "Established the universities design system, UX processes and methodologies",
+      "Supported the transition from a digital change programme to business as usual"
+    ],
+    caseStudy: "/case-study/education"
+  },
+  {
+    role: "Service and interaction design lead",
+    company: "HMCTS Reform programme / HMCTS (MoJ)",
+    period: "August 2016 - September 2019",
+    description: "The Appeal a Benefit service enabling users to appeal, manage and resolve a benefit appeal online - the first example of judicial online resolution worldwide. Successfully took a suite of products from Discovery through to Public Beta, passing three GDS service assessments.",
+    achievements: [
+      "Ideation and concept creation",
+      "Mapped user experience and service blueprints",
+      "User journeys and screen flows",
+      "Interaction design and prototyping using the gov.uk toolkit",
+      "Stakeholder engagement",
+      "Agile UX and Government Digital Service methodology implementation",
+      "UX planning and prioritisation"
+    ],
+    caseStudy: "/case-study/justice"
+  },
+  {
+    role: "Interaction designer",
+    company: "Security and identity verification / HMRC",
+    period: "October 2015 - August 2016",
+    description: "HMRC needed to make its services more secure but reduce barriers to users accessing those services. The UX team were asked to design low friction account and identification services to support this.",
+    achievements: [
+      "Ideation and concept creation",
+      "User journeys and task flows",
+      "Interaction design",
+      "Prototyping using Gov.uk toolkit",
+      "Stakeholder engagement",
+      "UX planning and prioritisation"
+    ],
+    caseStudy: "/case-study/hmrc"
+  },
+  {
+    role: "UX design lead",
+    company: "Global web site redesign / HSBC Business Banking",
+    period: "January 2014 - September 2015",
+    description: "The challenge was to increase user engagement and create a consistent experience across 55 markets and 17 languages including the UK and Hong Kong.",
+    achievements: [
+      "UX design lead, responsible for ensure this large scale and complex project was supported by robust UX methodology and high quality deliverables",
+      "Stakeholder engagement",
+      "Requirements gathering",
+      "Site audits",
+      "Information architecture",
+      "Wireframes and prototyping",
+      "Modular design system",
+      "Content mapping and CMS integration",
+      "UX planning and prioritisation"
+    ],
+    caseStudy: "/case-study/banking"
+  },
+  {
+    role: "Senior UX designer",
+    company: "Retail banking application / Barclays Bank",
+    period: "February - December 2013",
+    description: "Multi-platform application enabling the bank and its customers to share, organise and store documents. Integrated into the existing retail banking application to create a seamless user experience.",
+    achievements: [
+      "Design concepts",
+      "UXD process definition",
+      "Stakeholder engagement",
+      "User journeys",
+      "Wireframes and functional specs",
+      "Interaction design",
+      "Mobile concepts and optimisation",
+      "Responsive prototyping"
+    ],
+    caseStudy: "/case-study/barclays"
+  }
+];
+
+const otherProjects = [
+  {
+    role: "eCommerce site optimisation for tablet",
+    company: "Marks and Spencer",
+    period: "September - January 2012",
+    description: "UX design lead with the objectives were to increase conversions and create a more immersive tablet experience for the M&S international site."
+  },
+  {
+    role: "eCommerce site and brand launch",
+    company: "EE",
+    period: "July - September 2012",
+    description: "UX design and documentation for modular and responsive eCommerce web site."
+  },
+  {
+    role: "KPI optimisation",
+    company: "STA Travel",
+    period: "April - July 2012",
+    description: "UX lead responsible for increasing the travel booking service's KPIs by optimising key landing pages and booking conversion paths."
+  },
+  {
+    role: "Sales tool application",
+    company: "Airbus",
+    period: "March - April 2012",
+    description: "Design concepts and UX documentation for a multi-platform sales tool"
+  },
+  {
+    role: "Brand launch site",
+    company: "M&S Bank",
+    period: "February - March 2012",
+    description: "Utilised brand strategy and user research to create designs for the bank launch site. The objectives were to promote the proposition and engage users in the signup process."
+  },
+  {
+    role: "Digital agency partner",
+    company: "10:00AM",
+    period: "2002 - 2012",
+    description: "Working directly with brands and providing digital expertise to creative agencies. Clients included BBC, Compass Group, Conran Design, Diageo, GSK, IKEA, KPMG, Reed-Elsevier, Rolls Royce and Tesco."
+  },
+  {
+    role: "Design agency partner",
+    company: "Giraffe",
+    period: "1998 - 2001",
+    description: "Set up a design agency with two friends after winning a Princes Trust Grant. Notable design work included sleeve and promotional artwork for the band Morcheeba and brand, interior and packaging design for the EAT cafe chain."
+  }
+];
+
+const linkStyles = "underline decoration-2 underline-offset-4 focus:outline-none focus:bg-yellow-300 focus:box-decoration-clone focus:border-b-4 focus:border-black active:bg-yellow-300 active:box-decoration-clone active:border-b-4 active:border-black";
+
+const srOnlyStyles = "absolute w-[1px] h-[1px] p-0 -m-[1px] overflow-hidden clip-[rect(0,0,0,0)] whitespace-nowrap border-0";
+---
+
+<Layout title="Résumé | Steven Wise">
+  <main class="max-w-7xl mx-auto px-6">
+    <div class="pt-32 pb-24">
+      <h1 class="text-[72px] font-montserrat font-bold text-gray-900 mb-12">Résumé</h1>
+      
+      <div class="space-y-16">
+        <!-- Expertise Section -->
+        <section>
+          <h2 class="text-4xl font-montserrat font-bold text-gray-900 mb-8">Expertise</h2>
+          <div class="md:w-3/4">
+            <ExpertiseList />
+          </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section>
+          <h2 class="text-4xl font-montserrat font-bold text-gray-900 mb-8">Experience</h2>
+          <div class="space-y-12 md:w-3/4">
+            {experience.map((job, index) => (
+              <div class={`space-y-4 ${index !== experience.length - 1 ? 'mb-16' : ''}`}>
+                <h3 class="text-2xl font-montserrat font-semibold text-gray-900">{job.role}</h3>
+                <p class="text-xl text-gray-600 font-[700]">{job.company}</p>
+                <p class="text-lg text-gray-500">{job.period}</p>
+                <p class="text-lg text-gray-600">{job.description}</p>
+                <ul class="list-disc pl-5 space-y-2">
+                  {job.achievements.map(achievement => (
+                    <li class="text-lg text-gray-600 pl-2 marker:text-gray-400">{achievement}</li>
+                  ))}
+                </ul>
+                {job.caseStudy && (
+                  <div class="pt-2">
+                    <a 
+                      href={job.caseStudy} 
+                      class={`text-gray-600 hover:text-gray-900 ${linkStyles}`}
+                    >
+                      View case study
+                      <span class={srOnlyStyles}>
+                        for {job.company.split('/')[0].trim()}
+                      </span>
+                    </a>
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <!-- Other Projects Section -->
+        <section>
+          <h2 class="text-4xl font-montserrat font-bold text-gray-900 mb-8">Other UX design projects</h2>
+          <div class="space-y-8 md:w-3/4">
+            {otherProjects.map(project => (
+              <div class="space-y-2">
+                <h3 class="text-xl font-montserrat font-semibold text-gray-900">{project.role}</h3>
+                <p class="text-lg text-gray-600 font-[700]">{project.company}</p>
+                <p class="text-gray-500">{project.period}</p>
+                <p class="text-gray-600">{project.description}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <!-- Extra Curricula Section with grey background -->
+    <div class="bg-gray-100 -mx-6 px-6 -mb-[100px]">
+      <div class="max-w-7xl mx-auto pt-[88px] pb-24">
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-12">
+          <div class="space-y-6">
+            <h2 class="text-4xl font-montserrat font-bold text-gray-900 mb-8">Extra curricula interests and activities</h2>
+            <p class="text-xl text-gray-600">Design, technology and everything in between. Personal productivity. Photography. Cooking (and eating). Cycling in all its forms.</p>
+            
+            <p class="text-lg text-gray-600">I recently combined my love of food, cycling and photography in an article and recipe I wrote for the <span class="font-medium">Porky Punk Annual Manual</span>, a book self-published by a culinary community.</p>
+            
+            <p class="text-lg text-gray-600">My cycling adventures have taken me to many places, from Cardiff to Colwyn Bay, London to John O'Groats and over the Alpine climbs of the Tour de France. You can view my trip photos on <a href="https://instagram.com" class={`text-gray-900 ${linkStyles}`}>Instagram</a>.</p>
+          </div>
+          
+          <div>
+            <img 
+              src="/images/recipe-book.jpg" 
+              alt="Article and recipe from Porky Punk Annual Manual"
+              class="w-full"
+            />
+            <p class="text-center text-gray-600 mt-4">Article and recipe</p>
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
+</Layout>

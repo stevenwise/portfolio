@@ -1,0 +1,161 @@
+---
+interface Props {
+  isFooter?: boolean;
+}
+
+const { isFooter = false } = Astro.props;
+
+const links = [
+  { href: "/", text: "Home" },
+  { href: "/about", text: "About" },
+  { href: "/resume", text: "Résumé" },
+  { href: "/contact", text: "Contact" }
+];
+
+const currentPath = Astro.url.pathname;
+
+const linkStyles = "text-gray-600 hover:text-gray-900 hover:font-bold relative after:absolute after:left-0 after:right-0 after:-bottom-2 after:h-0.5 after:bg-gray-900 after:origin-center after:scale-x-0 after:transition-transform after:duration-300 hover:after:scale-x-100 focus:outline-none focus:bg-yellow-300 focus:box-decoration-clone focus:p-1 focus:-m-1 focus:border-b-4 focus:border-black [&:not(:active)]:hover:after:scale-x-100 active:bg-yellow-300 active:box-decoration-clone active:p-1 active:-m-1 active:border-b-4 active:border-black";
+---
+
+<div class:list={[
+  "w-full z-50",
+  isFooter ? "py-8 border-t border-gray-300" : "fixed bg-white/95 backdrop-blur-sm py-6 border-b-2 border-gray-300"
+]}>
+  <div class="max-w-7xl mx-auto px-6">
+    {!isFooter ? (
+      <nav aria-label={isFooter ? "Footer" : "Main"}>
+        <!-- Desktop Navigation -->
+        <div class="hidden md:flex justify-center items-center space-x-12">
+          {links.map(link => {
+            const isCurrentPage = currentPath === link.href || 
+              (currentPath.startsWith(link.href) && link.href !== "/");
+            return isCurrentPage ? (
+              <span class="text-gray-900 font-bold" aria-current="page">{link.text}</span>
+            ) : (
+              <a href={link.href} class={linkStyles}>
+                {link.text}
+              </a>
+            );
+          })}
+        </div>
+
+        <!-- Mobile Navigation Button -->
+        <div class="md:hidden">
+          <div class="flex justify-between items-center">
+            <a href="/" class="text-xl font-medium text-gray-900">SW</a>
+            <button
+              id="menuButton"
+              class="text-gray-600 hover:text-gray-900 focus:outline-none focus:ring-4 focus:ring-yellow-300 focus:border-b-4 focus:border-black"
+              aria-label="Toggle menu"
+              aria-expanded="false"
+              aria-controls="mobileMenu"
+            >
+              <svg
+                class="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  id="menuIcon"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 6h16M4 12h16M4 18h16"
+                ></path>
+                <path
+                  id="closeIcon"
+                  class="hidden"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M6 18L18 6M6 6l12 12"
+                ></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </nav>
+    ) : (
+      <div class="flex justify-between items-center">
+        <nav aria-label="Footer">
+          <div class="flex justify-center space-x-12">
+            {links.map(link => {
+              const isCurrentPage = currentPath === link.href || 
+                (currentPath.startsWith(link.href) && link.href !== "/");
+              return isCurrentPage ? (
+                <span class="text-gray-900 font-bold" aria-current="page">{link.text}</span>
+              ) : (
+                <a href={link.href} class={linkStyles}>
+                  {link.text}
+                </a>
+              );
+            })}
+          </div>
+        </nav>
+        <a href="https://www.linkedin.com/in/stevenwiseux/" class={`${linkStyles} flex items-center gap-2`}>
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+          </svg>
+          LinkedIn
+        </a>
+      </div>
+    )}
+  </div>
+</div>
+
+<!-- Mobile Menu Overlay -->
+<div
+  id="mobileMenu"
+  class="fixed inset-x-0 top-0 -translate-y-full bg-white z-40 transition-transform duration-300 ease-in-out md:hidden"
+  aria-hidden="true"
+  inert
+>
+  <nav aria-label="Mobile">
+    <div class="px-6 py-20 flex flex-col items-center space-y-6">
+      {links.map(link => {
+        const isCurrentPage = currentPath === link.href || 
+          (currentPath.startsWith(link.href) && link.href !== "/");
+        return isCurrentPage ? (
+          <span class="block text-lg text-gray-900 font-bold" aria-current="page">{link.text}</span>
+        ) : (
+          <a href={link.href} class={`block text-lg ${linkStyles}`}>
+            {link.text}
+          </a>
+        );
+      })}
+    </div>
+  </nav>
+</div>
+
+<script>
+  const menuButton = document.getElementById('menuButton');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const menuIcon = document.getElementById('menuIcon');
+  const closeIcon = document.getElementById('closeIcon');
+
+  if (menuButton && mobileMenu && menuIcon && closeIcon) {
+    menuButton.addEventListener('click', () => {
+      const isOpen = !mobileMenu.classList.contains('translate-y-0');
+      
+      // Toggle icons
+      menuIcon.classList.toggle('hidden');
+      closeIcon.classList.toggle('hidden');
+      
+      // Toggle menu visibility with slide animation
+      mobileMenu.classList.toggle('translate-y-0');
+      
+      // Update ARIA attributes and inert
+      menuButton.setAttribute('aria-expanded', isOpen.toString());
+      mobileMenu.setAttribute('aria-hidden', (!isOpen).toString());
+      mobileMenu.toggleAttribute('inert', !isOpen);
+      
+      // Add/remove backdrop and prevent scroll when menu is open
+      if (isOpen) {
+        document.body.style.overflow = 'hidden';
+      } else {
+        document.body.style.overflow = '';
+      }
+    });
+  }
+</script>

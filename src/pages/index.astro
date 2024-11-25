@@ -1,0 +1,74 @@
+---
+import Layout from '../layouts/Layout.astro';
+import CaseStudyCard from '../components/CaseStudyCard.astro';
+
+const caseStudies = [
+  {
+    title: "Accessible justice: Service design for benefit appeals",
+    organization: "HMCTS Reform Programme | GOV.UK",
+    image: "/images/justice.jpg",
+    href: "/case-study/justice",
+    tags: ["Service design"]
+  },
+  {
+    title: "Housing dispute service design adapting to the Renters' Rights Bill",
+    organization: "HMCTS | GOV.UK",
+    image: "/images/housing.jpg",
+    href: "/case-study/housing",
+    tags: ["Service design"]
+  },
+  {
+    title: "Streamlining organisational workflows",
+    organization: "University of Southampton",
+    image: "/images/workflow.jpg",
+    href: "/case-study/workflow",
+    tags: ["Service design"]
+  },
+  {
+    title: "Digital transformation in higher education",
+    organization: "OneWeb | University of Southampton",
+    image: "/images/education.jpg",
+    href: "/case-study/education",
+    tags: ["Service design", "UX design"]
+  },
+  {
+    title: "Securing HMRC digital services",
+    organization: "HMRC | GOV.UK",
+    image: "/images/security.jpg",
+    href: "/case-study/hmrc",
+    tags: ["UX design"]
+  },
+  {
+    title: "Designing a unified global business banking experience",
+    organization: "HSBC Business Banking",
+    image: "/images/hsbc.jpg",
+    href: "/case-study/banking",
+    tags: ["UX design"]
+  }
+];
+---
+
+<Layout title="Steven Wise | Service and User Experience Designer">
+  <div class="relative">
+    <div class="absolute inset-x-0 top-0 h-[552px] bg-gradient-to-b from-gray-100 via-gray-200 to-white"></div>
+    <main class="relative max-w-7xl mx-auto px-6">
+      <div class="pt-56 mb-24 text-center">
+        <h1 class="text-4xl md:text-5xl lg:text-7xl font-montserrat font-bold text-gray-900 mb-2">Steven Wise</h1>
+        <p class="text-xl md:text-2xl text-gray-600">Service and User Experience Designer</p>
+      </div>
+
+      <div class="mb-16 mt-72 text-center">
+        <h2 class="text-3xl md:text-4xl lg:text-[44px] font-montserrat font-semibold text-gray-900 mb-6">Case studies</h2>
+        <p class="text-base md:text-lg lg:text-xl text-gray-600 mx-auto max-w-2xl mb-20">
+          A collection of case studies demonstrating how user-centred design principles were applied to solve complex challenges.
+        </p>
+      </div>
+
+      <div class="space-y-16">
+        {caseStudies.map((study, index) => (
+          <CaseStudyCard {...study} imagePosition={index % 2 === 0 ? 'left' : 'right'} />
+        ))}
+      </div>
+    </main>
+  </div>
+</Layout>

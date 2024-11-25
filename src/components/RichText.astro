@@ -1,0 +1,87 @@
+---
+interface ListItem {
+  text: string;
+  subItems?: string[];
+}
+
+interface List {
+  type: 'ordered' | 'unordered';
+  title?: string;
+  items: (string | ListItem)[];
+}
+
+interface Props {
+  content: {
+    title: string;
+    subtitle?: string;
+    paragraphs: string[];
+    lists?: List[];
+  };
+}
+
+const { content } = Astro.props;
+---
+
+<div class="rich-text-section space-y-8">
+  <h2 class="text-3xl font-montserrat font-bold text-gray-900">{content.title}</h2>
+  
+  {content.subtitle && (
+    <h3 class="text-2xl font-montserrat font-semibold text-gray-900">{content.subtitle}</h3>
+  )}
+  
+  {content.paragraphs.map(paragraph => (
+    <p class="text-lg text-gray-600 leading-relaxed">{paragraph}</p>
+  ))}
+
+  {content.lists?.map(list => (
+    <div class="space-y-4">
+      {list.title && (
+        <h4 class="text-xl font-montserrat font-medium text-gray-900">{list.title}</h4>
+      )}
+      
+      {list.type === 'ordered' ? (
+        <ol class="list-decimal list-outside ml-6 space-y-3">
+          {list.items.map(item => (
+            <li class="text-lg text-gray-600 pl-2 marker:text-gray-400">
+              {typeof item === 'string' ? (
+                item
+              ) : (
+                <>
+                  {item.text}
+                  {item.subItems && (
+                    <ul class="list-disc list-outside ml-6 mt-3 space-y-3">
+                      {item.subItems.map(subItem => (
+                        <li class="text-lg text-gray-600 pl-2 marker:text-gray-400">{subItem}</li>
+                      ))}
+                    </ul>
+                  )}
+                </>
+              )}
+            </li>
+          ))}
+        </ol>
+      ) : (
+        <ul class="list-disc list-outside ml-6 space-y-3">
+          {list.items.map(item => (
+            <li class="text-lg text-gray-600 pl-2 marker:text-gray-400">
+              {typeof item === 'string' ? (
+                item
+              ) : (
+                <>
+                  {item.text}
+                  {item.subItems && (
+                    <ul class="list-disc list-outside ml-6 mt-3 space-y-3">
+                      {item.subItems.map(subItem => (
+                        <li class="text-lg text-gray-600 pl-2 marker:text-gray-400">{subItem}</li>
+                      ))}
+                    </ul>
+                  )}
+                </>
+              )}
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
+  ))}
+</div>
